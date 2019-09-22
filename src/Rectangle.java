@@ -9,7 +9,7 @@ public class Rectangle {
         System.out.println("작사각형의 넓이는"+a*b+"입니다.");
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int num,width,height;
 
         Scanner sc = new Scanner(System.in);
