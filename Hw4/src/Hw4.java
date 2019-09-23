@@ -82,19 +82,19 @@ class Students {
         sts[j] = temp;
     }
     //학번으로 정렬
-    public void sortByld(){
-      for(int i =0;i<number;i++) {
-          for(int j=i;i<number;j++) {
-              if(sts[i].getId()>sts[j].getId()) {
-                  swap(i,j);
-              }
-          }
-      }
+    public void sortByid(){
+        for (int i = 0; i < number; i++) {
+            for (int j = i; j < number; j++) {
+                if (sts[i].getId() > sts[j].getId()) {
+                    swap(i, j);
+                }
+            }
+        }
     }
     //성적순으로 정렬
     public  void sortByScore(){
-        for(int i =0;i<number;i++) {
-            for (int j = i; i < number; j++) {
+        for (int i = 0; i < number; i++) {
+            for (int j = i; j < number; j++) {
                 if (sts[i].getScore() > sts[j].getScore()) {
                     swap(i, j);
                 }
@@ -111,8 +111,50 @@ class Students {
     }
 }
 
-0public class Hw4 {
+public class Hw4 {
     public static void main(String[] args) {
+
+        Students stus = new Students();
+
+        // 객체 생성
+        Stu stu1 = new Stu(1111,"aaaa",56);
+        Stu stu2 = new Stu(2222,"bbbb",32);
+        Stu stu3 = new Stu(3333,"cccc",86);
+        Stu stu4 = new Stu(4444,"dddd",65);
+        Stu stu5 = new Stu(5555,"eeee",13);
+        Stu stutemp;
+        //객체 추가
+        stus.append(stu1);
+        stus.append(stu2);
+        stus.append(stu3);
+        stus.append(stu4);
+        stus.append(stu5);
+
+        System.out.println("dddd학생의 정보");
+        stutemp = stus.getByName("dddd");
+        stutemp.println();
+        System.out.println("---------------");
+
+        System.out.println("학생목록");
+        stus.print();
+        System.out.println("---------------");
+
+        System.out.println("성적순 정렬");
+        stus.sortByScore();
+        stus.print();
+        System.out.println("---------------");
+
+        System.out.println("가장 점수가 낮은 학생의 정보");
+        stutemp = stus.StudentsAt(0);
+        stutemp.changeScore(90);
+        stutemp.println();
+        System.out.println("---------------");
+
+        System.out.println("학번순 정렬");
+        stus.sortByid();
+        stus.print();
+        System.out.println("---------------");
+        System.out.println("평균점수: " + stus.average());
 
     }
 }
